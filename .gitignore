@@ -1,0 +1,16 @@
+# Build products
+build/
+DerivedData/
+*.xcresult
+
+# Xcode per-user state
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+
+# macOS
+.DS_Store
+
+
+# Icon sketches: kept locally, never committed
+docs/icon-sketches/
