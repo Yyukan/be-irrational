@@ -7,6 +7,7 @@ import SwiftUI
 /// - `-sampleData`: an in-memory store filled with sample scopes and occupations
 /// - `-tab someday|completed|trash`: the tab to open
 /// - `-open scope|occupation`: push the first scope, or its first occupation, on the Now tab
+/// - `-open suggestions`: show the suggested scopes over the Now tab
 @MainActor
 enum Launch {
     static func makePlanner() -> Planner {
@@ -37,10 +38,18 @@ enum Launch {
         #endif
     }
 
+    static var showsSuggestions: Bool {
+        #if DEBUG
+            UserDefaults.standard.string(forKey: "open") == "suggestions"
+        #else
+            false
+        #endif
+    }
+
     static func path(_ planner: Planner) -> NavigationPath {
         var path = NavigationPath()
         #if DEBUG
-            guard let open = UserDefaults.standard.string(forKey: "open"),
+            guard let open = UserDefaults.standard.string(forKey: "open"), open != "suggestions",
                 let domain = planner.scopes().first
             else { return path }
             path.append(domain)

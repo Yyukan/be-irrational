@@ -40,6 +40,7 @@ struct ScopesView: View {
             }
         }
         .sheet(isPresented: $showingSuggestions) { SuggestionsSheet() }
+        .onAppear { if Launch.showsSuggestions { showingSuggestions = true } }
         .modifier(moveDialog)
         .modifier(deleteDialog)
     }

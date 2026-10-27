@@ -33,6 +33,7 @@ struct Notepad<Content: View>: View {
         }
         .clipShape(UnevenRoundedRectangle(bottomLeadingRadius: 14, bottomTrailingRadius: 14))
         .shadow(color: .black.opacity(0.25), radius: 6, y: 2)
+        .frame(maxWidth: 820)
         .padding(.horizontal, 10)
     }
 }
