@@ -13,6 +13,8 @@ struct ScopesView: View {
     @State private var showingSuggestions = false
     @State private var pendingMove: PendingMove?
     @State private var pendingDelete: Domain?
+    @State private var showingGuide = false
+    @AppStorage("guideSeen") private var guideSeen = false
 
     private struct PendingMove: Identifiable {
         let domain: Domain
@@ -40,7 +42,15 @@ struct ScopesView: View {
             }
         }
         .sheet(isPresented: $showingSuggestions) { SuggestionsSheet() }
-        .onAppear { if Launch.showsSuggestions { showingSuggestions = true } }
+        .sheet(isPresented: $showingGuide) { GuideSheet() }
+        .onAppear {
+            if Launch.showsSuggestions {
+                showingSuggestions = true
+            } else if !guideSeen, Launch.showsGuideOnce {
+                guideSeen = true
+                showingGuide = true
+            }
+        }
         .modifier(moveDialog)
         .modifier(deleteDialog)
     }
@@ -68,6 +78,10 @@ struct ScopesView: View {
                 }
                 .accessibilityIdentifier("scopes.edit")
             }
+        }
+        ToolbarItem(placement: .topBarTrailing) {
+            Button("How It Works", systemImage: "questionmark.circle") { showingGuide = true }
+                .accessibilityIdentifier("guide.open")
         }
         ToolbarItem(placement: .topBarTrailing) { addMenu }
     }

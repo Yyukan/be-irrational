@@ -121,13 +121,13 @@ final class Planner {
     }
 
     @discardableResult
-    func addOccupation(to domain: Domain, title: String, note: String) -> Occupation {
-        let order = occupations(in: domain, status: .now).count
+    func addOccupation(to domain: Domain, title: String, note: String, status: Status = .now) -> Occupation {
+        let order = occupations(in: domain, status: status).count
         let occupation = Occupation(context: context)
         occupation.text = title
         occupation.note = note
         occupation.date = .now
-        occupation.status = Status.now.rawValue
+        occupation.status = status.rawValue
         occupation.order = Int16(order)
         occupation.domain = domain
         save()

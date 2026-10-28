@@ -10,6 +10,7 @@
 		1640CE7FF46E80810D2A0F5D /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D623729275BE231F561A0280 /* SampleData.swift */; };
 		383B1E550B33C2EC1D3CBA97 /* Occupation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AAD81E56A67987BC22A7FA /* Occupation.swift */; };
 		44CE164834B6B0F7607C1210 /* PlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD429173691FC3D2B0CCF44C /* PlannerTests.swift */; };
+		4AF4E1144ECBF62C49B3EEE1 /* GuideSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E34C7535CA842AAF3828273 /* GuideSheet.swift */; };
 		52406DEE82083670B02E287D /* Planner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9801C48199E2435FCA1C4B6 /* Planner.swift */; };
 		5C227D088B29310BA12718A8 /* BeIrrationalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594B69C9B7C9994898123002 /* BeIrrationalApp.swift */; };
 		7062397F2FF8DD8842AF895A /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 97D1756F15B73A061F6D1BE6 /* DataModel.xcdatamodeld */; };
@@ -24,6 +25,7 @@
 		D888D045F25EEBA5A68BAC5D /* Fixtures in Resources */ = {isa = PBXBuildFile; fileRef = BF827D7FB1CDD09771F9D158 /* Fixtures */; };
 		E1C52D0F5DD42C4061DCCB73 /* Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F3B1B6D64B261FB26C529A /* Domain.swift */; };
 		E2583F6AC1353EDC12AB4FDA /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE594919B6F38284E0F103D6 /* Launch.swift */; };
+		E8A75C92B8A7DA356A729896 /* SomedaySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04EC104C1C8AD2A40DF8D3C /* SomedaySheet.swift */; };
 		EDF5C0FA0A2AE8B8033CDC1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A17D5734F3E6BE206C8EB882 /* Assets.xcassets */; };
 		F0E5D6DA0A8DB87455F6D92A /* OccupationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11462B62CECA04FC9F8A238 /* OccupationView.swift */; };
 		F230ED0EA3EA70D98313E30D /* FlowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7684AB92C3BB647B50FA8CA /* FlowUITests.swift */; };
@@ -50,6 +52,7 @@
 /* Begin PBXFileReference section */
 		0A4D82FA6D30CBB01326CE2C /* EditorSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorSheet.swift; sourceTree = "<group>"; };
 		27AAD81E56A67987BC22A7FA /* Occupation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Occupation.swift; sourceTree = "<group>"; };
+		4E34C7535CA842AAF3828273 /* GuideSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideSheet.swift; sourceTree = "<group>"; };
 		4F200B18E140C3F3C25ACBEE /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		509DE772BDD4AE8B9AC1AB46 /* BeIrrationalUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = BeIrrationalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		582A4F4A70AA06057E315ACB /* ScopesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopesView.swift; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 		BD62C9855A1B696194F33CE5 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		BF827D7FB1CDD09771F9D158 /* Fixtures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fixtures; path = BeIrrational/Tests/Fixtures; sourceTree = SOURCE_ROOT; };
 		CE594919B6F38284E0F103D6 /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
+		D04EC104C1C8AD2A40DF8D3C /* SomedaySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomedaySheet.swift; sourceTree = "<group>"; };
 		D623729275BE231F561A0280 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		D69278911167654D58D6AC79 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		D8FE797F35CD29D2D9389F99 /* BeIrrationalTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = BeIrrationalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,10 +118,12 @@
 			isa = PBXGroup;
 			children = (
 				0A4D82FA6D30CBB01326CE2C /* EditorSheet.swift */,
+				4E34C7535CA842AAF3828273 /* GuideSheet.swift */,
 				B11462B62CECA04FC9F8A238 /* OccupationView.swift */,
 				582A4F4A70AA06057E315ACB /* ScopesView.swift */,
 				D9447C4CFC869EAA2F892DD4 /* ScopeView.swift */,
 				F02B107C667AB4E3CC33C481 /* ShelfView.swift */,
+				D04EC104C1C8AD2A40DF8D3C /* SomedaySheet.swift */,
 				B2147874967638CD7877CCB0 /* Theme.swift */,
 			);
 			path = View;
@@ -307,6 +313,7 @@
 				7062397F2FF8DD8842AF895A /* DataModel.xcdatamodeld in Sources */,
 				E1C52D0F5DD42C4061DCCB73 /* Domain.swift in Sources */,
 				C1D02FC7F542C7F127DBE177 /* EditorSheet.swift in Sources */,
+				4AF4E1144ECBF62C49B3EEE1 /* GuideSheet.swift in Sources */,
 				E2583F6AC1353EDC12AB4FDA /* Launch.swift in Sources */,
 				383B1E550B33C2EC1D3CBA97 /* Occupation.swift in Sources */,
 				F0E5D6DA0A8DB87455F6D92A /* OccupationView.swift in Sources */,
@@ -316,6 +323,7 @@
 				92C49F64FAFF3A1D87DF09C5 /* ScopeView.swift in Sources */,
 				FB10582AE9C8BCD26F1134BF /* ScopesView.swift in Sources */,
 				91BD766E9505FB4BA7FA8B30 /* ShelfView.swift in Sources */,
+				E8A75C92B8A7DA356A729896 /* SomedaySheet.swift in Sources */,
 				D16AE4DB7D4DB030E3468A74 /* Status.swift in Sources */,
 				B6E30EE459A4E711DC494F01 /* SuggestedScopes.swift in Sources */,
 				83E01126ADD36B9EDF08109E /* Theme.swift in Sources */,
@@ -370,7 +378,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.shtykhno.BeIrrational;
 				PRODUCT_NAME = BeIrrational;
 				SDKROOT = iphoneos;
@@ -410,7 +418,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.shtykhno.BeIrrational;
 				PRODUCT_NAME = BeIrrational;
 				SDKROOT = iphoneos;

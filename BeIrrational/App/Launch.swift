@@ -46,6 +46,16 @@ enum Launch {
         #endif
     }
 
+    /// The guide opens by itself once, on the real store only, so tests and screenshots start clean.
+    static var showsGuideOnce: Bool {
+        #if DEBUG
+            let arguments = ProcessInfo.processInfo.arguments
+            return !arguments.contains("-uiTesting") && !arguments.contains("-sampleData")
+        #else
+            true
+        #endif
+    }
+
     static func path(_ planner: Planner) -> NavigationPath {
         var path = NavigationPath()
         #if DEBUG

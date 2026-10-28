@@ -7,6 +7,8 @@ struct ShelfView: View {
     @Environment(Planner.self) private var planner
     @FetchRequest private var occupations: FetchedResults<Occupation>
     @State private var confirmingEmpty = false
+    @State private var adding = false
+    @State private var showingGuide = false
 
     init(status: Status) {
         self.status = status
@@ -18,7 +20,11 @@ struct ShelfView: View {
         let groups = grouped()
         DeskPage(title: status.title) {
             if occupations.isEmpty {
-                ContentUnavailableView(emptyTitle, systemImage: status.symbol, description: Text(emptyText))
+                if status == .someday {
+                    somedayEmptyState
+                } else {
+                    ContentUnavailableView(emptyTitle, systemImage: status.symbol, description: Text(emptyText))
+                }
             } else {
                 List {
                     ForEach(groups, id: \.title) { group in
@@ -48,6 +54,12 @@ struct ShelfView: View {
             }
         }
         .toolbar {
+            if status == .someday {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Add", systemImage: "plus") { adding = true }
+                        .accessibilityIdentifier("someday.add")
+                }
+            }
             if status == .trash, !occupations.isEmpty {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Empty") { confirmingEmpty = true }
@@ -59,6 +71,22 @@ struct ShelfView: View {
             Button("Empty Trash", role: .destructive) { withAnimation { planner.emptyTrash() } }
         } message: {
             Text("The occupations in the Trash are deleted for good.")
+        }
+        .sheet(isPresented: $adding) { SomedaySheet() }
+        .sheet(isPresented: $showingGuide) { GuideSheet() }
+    }
+
+    private var somedayEmptyState: some View {
+        ContentUnavailableView {
+            Label("Nothing for someday", systemImage: status.symbol)
+        } description: {
+            Text("Things you would like to do one day, but not now. Tap + to write one, or swipe an occupation on the Now list to the left and choose Someday.")
+        } actions: {
+            Button("Add for Someday") { adding = true }
+                .buttonStyle(.borderedProminent)
+                .accessibilityIdentifier("someday.empty.add")
+            Button("How It Works") { showingGuide = true }
+                .accessibilityIdentifier("someday.empty.guide")
         }
     }
 
@@ -85,7 +113,6 @@ struct ShelfView: View {
 
     private var emptyText: String {
         switch status {
-        case .someday: "Swipe an occupation to put it aside for later."
         case .completed: "Swipe an occupation when it is done; it lands here."
         default: "Trashed occupations wait here until you empty it."
         }

@@ -82,6 +82,16 @@ final class PlannerTests: XCTestCase {
         XCTAssertEqual(scope.activeCount, 0)
     }
 
+    func testAnOccupationCanBeWrittenStraightIntoSomeday() {
+        let domain = planner.addScope(title: "Travel", note: "")
+        planner.addOccupation(to: domain, title: "Now", note: "")
+        planner.addOccupation(to: domain, title: "Japan", note: "", status: .someday)
+        planner.addOccupation(to: domain, title: "Iceland", note: "", status: .someday)
+        XCTAssertEqual(planner.occupations(in: domain, status: .now).map(\.title), ["Now"])
+        XCTAssertEqual(planner.occupations(in: domain, status: .someday).map(\.title), ["Japan", "Iceland"])
+        XCTAssertEqual(planner.occupations(in: domain, status: .someday).map(\.order), [0, 1])
+    }
+
     func testReorderingOccupations() {
         let scope = planner.addScope(title: "S", note: "")
         for title in ["1", "2", "3"] { planner.addOccupation(to: scope, title: title, note: "") }

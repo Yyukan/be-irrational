@@ -63,4 +63,40 @@ final class FlowUITests: XCTestCase {
         app.buttons["Empty Trash"].firstMatch.tap()
         XCTAssertFalse(app.buttons["occupation.Sleep before midnight"].waitForExistence(timeout: 2))
     }
+
+    func testWriteStraightIntoSomeday() {
+        let app = XCUIApplication()
+        app.launchArguments = ["-sampleData"]
+        app.launch()
+
+        app.tabBars.buttons["Someday"].tap()
+        app.buttons["someday.add"].tap()
+        let title = app.textFields["editor.title"]
+        XCTAssertTrue(title.waitForExistence(timeout: 5))
+        title.typeText("Learn to sail")
+        app.buttons["editor.save"].tap()
+        XCTAssertTrue(app.buttons["occupation.Learn to sail"].waitForExistence(timeout: 5))
+    }
+
+    func testSomedayOnAnEmptyStoreMakesTheScopeToo() {
+        let app = XCUIApplication()
+        app.launchArguments = ["-uiTesting"]
+        app.launch()
+
+        app.tabBars.buttons["Someday"].tap()
+        app.buttons["someday.empty.add"].tap()
+        let title = app.textFields["editor.title"]
+        XCTAssertTrue(title.waitForExistence(timeout: 5))
+        title.typeText("See Japan")
+        app.textFields["someday.newScope"].tap()
+        app.textFields["someday.newScope"].typeText("Travel")
+        app.buttons["editor.save"].tap()
+        XCTAssertTrue(app.buttons["occupation.See Japan"].waitForExistence(timeout: 5))
+
+        app.tabBars.buttons["Now"].tap()
+        XCTAssertTrue(app.buttons["scope.Travel"].waitForExistence(timeout: 5))
+        app.buttons["guide.open"].tap()
+        XCTAssertTrue(app.buttons["guide.done"].waitForExistence(timeout: 5))
+        app.buttons["guide.done"].tap()
+    }
 }
