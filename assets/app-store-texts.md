@@ -1,6 +1,6 @@
 # App Store texts — Be Irrational
 
-Version 1.3 of the existing app record (App Store Connect app id 483434584, bundle
+Version 1.4 (1.3 was the Swift rewrite, live since 2026-10-28) of the existing app record (App Store Connect app id 483434584, bundle
 `net.shtykhno.BeIrrational`, primary language English (U.S.)): a Swift rewrite of the 2011 app
 that opens the data of 1.2 unchanged. 1.2 has been live since 2013, so the new version is 1.3.
 Character limits are in brackets.
@@ -33,7 +33,9 @@ HOW IT WORKS
 • Fill it with what you would do now.
 • Set the progress of each one; the ring of dots shows how far you are and how many days it has
   taken.
-• Swipe to put things aside for Someday, to mark them Completed or to send them to the Trash.
+• Write down what you would do one day on the Someday list, or swipe things there from Now.
+• Swipe to mark things Completed or to send them to the Trash.
+• Not sure where to start? How It Works walks you through it in five short steps.
 • Reorder, edit and come back to anything at any time.
 
 QUIET BY DESIGN
@@ -44,12 +46,9 @@ Just live, enjoy your life, and may your wishes come true.
 
 ## What's New in This Version [4000]
 
-Be Irrational is rebuilt from scratch for today's iPhones and iPads.
-• A fresh look, with the wooden desk and spiral notepad you know.
-• Swipe a row to move it to Someday, Completed or Trash, or to edit it.
-• Suggested scopes to get started in seconds.
-• Progress and day counters on every occupation.
-• Your lists from earlier versions are all still there.
+• Write straight into Someday: tap + on the Someday tab.
+• New How It Works guide, shown on first launch and any time from the ? on the Now tab.
+• The notepad no longer slips under the tab bar, and its spiral binding fits every screen.
 
 ## Keywords [100]
 
@@ -88,8 +87,8 @@ Data Not Collected. The app has no network access; everything the user writes st
 
 No login is needed and the app works offline. Tap + on the Now tab to add a scope (or pick a
 suggested one), open it and tap + to add an occupation. Swipe rows left to move them to Someday,
-Completed or Trash, right to edit. This is version 1.3 of the app, rewritten in Swift; it keeps
-the data of 1.2.
+Completed or Trash, right to edit. Tap + on the Someday tab to write there directly; the ? on the
+Now tab opens a short guide. Version 1.4 answers user reviews asking how to write into Someday.
 
 ## Screenshots
 
