@@ -23,10 +23,7 @@ struct Notepad<Content: View>: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            Image("Spiral")
-                .resizable(resizingMode: .tile)
-                .frame(height: 15)
-                .accessibilityHidden(true)
+            SpiralBinding()
             content
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Theme.paper)
@@ -35,6 +32,31 @@ struct Notepad<Content: View>: View {
         .shadow(color: .black.opacity(0.25), radius: 6, y: 2)
         .frame(maxWidth: 820)
         .padding(.horizontal, 10)
+        .padding(.bottom, 14)
+    }
+}
+
+/// The spiral tile, shifted so the clips sit centred and none is cut at either edge.
+struct SpiralBinding: View {
+    /// In points: the tile repeats a clip every 20, each 7 wide and starting 11.5 in.
+    private let period: CGFloat = 20
+    private let clipWidth: CGFloat = 7
+    private let clipStart: CGFloat = 11.5
+
+    var body: some View {
+        GeometryReader { geo in
+            let count = max(floor((geo.size.width - clipWidth) / period) + 1, 1)
+            let margin = (geo.size.width - (count - 1) * period - clipWidth) / 2
+            let shift = (margin - clipStart).truncatingRemainder(dividingBy: period) - period
+            Image("Spiral")
+                .resizable(resizingMode: .tile)
+                .frame(width: geo.size.width + 2 * period, height: 15)
+                .offset(x: shift)
+                .frame(width: geo.size.width, height: 15, alignment: .leading)
+                .clipped()
+        }
+        .frame(height: 15)
+        .accessibilityHidden(true)
     }
 }
 
